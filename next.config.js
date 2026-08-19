@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 module.exports = {
+  output: "export",
   reactStrictMode: true,
   outputFileTracingRoot: __dirname,
   webpack: (config, options) => {
@@ -15,6 +16,7 @@ module.exports = {
     BASE_URL: process.env.BASE_URL,
   },
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

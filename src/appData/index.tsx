@@ -44,6 +44,14 @@ export const TechIcon = {
   GRAFANA:
     "https://img.shields.io/badge/grafana-%23F46800.svg?style=for-the-badge&logo=grafana&logoColor=white",
   GIT: "https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white",
+  PYTORCH:
+    "https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white",
+  FASTAPI:
+    "https://img.shields.io/badge/FastAPI-%23005571.svg?style=for-the-badge&logo=fastapi&logoColor=white",
+  LANGCHAIN:
+    "https://img.shields.io/badge/LangChain-%231C3C3C.svg?style=for-the-badge&logo=langchain&logoColor=white",
+  ELASTICSEARCH:
+    "https://img.shields.io/badge/Elasticsearch-%23005571.svg?style=for-the-badge&logo=elasticsearch&logoColor=white",
 };
 
 export const AppDirectory: Map<number, Tab> = new Map([
@@ -267,6 +275,63 @@ export const WorkData = [
     the user and displays the fare and shortest route for a seamless travel experience, along with a
     metro map for better navigation.`,
   },
+  {
+    id: 8,
+    title: "Image Classifier - PyTorch Model Serving",
+    date: "August 2026",
+    gitURL: "https://github.com/khushichauhan05/Image-Classifier",
+    techstack: [
+      TechIcon.PYTHON,
+      TechIcon.PYTORCH,
+      TechIcon.FASTAPI,
+      TechIcon.DOCKER,
+      TechIcon.KUBERNETES,
+    ],
+    gallery: [],
+    overview: `An end-to-end deep-learning inference service: upload an image and a pre-trained
+    MobileNet V2 model (trained on ImageNet's 1.2M images across 1,000 categories) returns the top 3
+    labels with confidence scores. The model is served through a FastAPI web app, preprocessing runs
+    on torchvision, and the whole thing is packaged with Docker and deployable to Kubernetes via a
+    Deployment and Service. A compact, production-minded example of turning a trained model into a
+    real, deployable serving endpoint.`,
+  },
+  {
+    id: 9,
+    title: "Ask-the-Docs - RAG with Self-Grading Evaluation",
+    date: "August 2026",
+    gitURL: "https://github.com/khushichauhan05/Ask-the-DOCS",
+    techstack: [
+      TechIcon.PYTHON,
+      TechIcon.LANGCHAIN,
+    ],
+    gallery: [],
+    overview: `A production-minded retrieval-augmented generation (RAG) app: upload your own
+    documents (PDF / TXT / Markdown), ask questions in plain English, and get answers with citations
+    back to the exact source passages. Documents are chunked with LangChain, embedded locally with a
+    MiniLM model and stored in a Chroma vector database; retrieval runs entirely on-device and only
+    the final answer calls the LLM. It also ships a self-grading evaluation pipeline that scores the
+    app's own answers against a golden question set for correctness and faithfulness - the part most
+    tutorial RAG projects skip.`,
+  },
+  {
+    id: 10,
+    title: "Web Notes MCP - Model Context Protocol Server",
+    date: "August 2026",
+    gitURL: "https://github.com/khushichauhan05/web-notes-mcp",
+    techstack: [
+      TechIcon.GO,
+      TechIcon.ELASTICSEARCH,
+      TechIcon.DOCKER,
+    ],
+    gallery: [],
+    overview: `An MCP (Model Context Protocol) server that gives AI assistants like Claude the
+    ability to search the web, read pages, run code, and remember what they find across
+    conversations. Written in Go, it implements the MCP protocol over JSON-RPC 2.0 (stdio) and
+    exposes tools for web search, page fetching, sandboxed code execution, note storage and
+    full-text search. Notes are indexed in Elasticsearch (browsable via Kibana), and each code
+    snippet runs in an isolated, network-less Docker container with capped CPU/RAM. The full stack
+    starts with a single docker compose command.`,
+  },
 ] as WorkContent[];
 
 export const WorkAccordionContent = [
@@ -311,6 +376,27 @@ export const WorkAccordionContent = [
     icon: file,
     title: "Breast Cancer Classification",
     content: WorkData[WorkData.findIndex((x) => x.id === 6)],
+  },
+  {
+    id: 8,
+    type: WorkType.PROJECTS,
+    icon: file,
+    title: "Image Classifier - PyTorch Serving",
+    content: WorkData[WorkData.findIndex((x) => x.id === 8)],
+  },
+  {
+    id: 9,
+    type: WorkType.PROJECTS,
+    icon: file,
+    title: "Ask-the-Docs - RAG App",
+    content: WorkData[WorkData.findIndex((x) => x.id === 9)],
+  },
+  {
+    id: 10,
+    type: WorkType.PROJECTS,
+    icon: file,
+    title: "Web Notes MCP Server",
+    content: WorkData[WorkData.findIndex((x) => x.id === 10)],
   },
   {
     id: 7,
