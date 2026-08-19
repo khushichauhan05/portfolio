@@ -26,6 +26,7 @@ import Welcome from "@/programs/Welcome";
 export default function Home() {
   const Tabs = useSelector((state: RootState) => state.tab.tray);
   const currTabID = useSelector((state: RootState) => state.tab.id);
+  const [showMobileNotice, setShowMobileNotice] = useState(true);
 
   const handleRunApp = (e: number) => {
     const newTab = { ...AppDirectory.get(e), id: uuidv4(), zIndex: currTabID };
@@ -73,6 +74,20 @@ export default function Home() {
         <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
       </Head>
       <main className={styles.main}>
+        {showMobileNotice && (
+          <div className={styles.mobileNotice}>
+            <span>
+              💻 Best viewed on a desktop for the full Windows XP experience
+            </span>
+            <button
+              type="button"
+              aria-label="Dismiss"
+              onClick={() => setShowMobileNotice(false)}
+            >
+              ×
+            </button>
+          </div>
+        )}
         <div
           style={{
             position: "relative",

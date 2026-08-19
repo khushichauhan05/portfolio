@@ -13,6 +13,44 @@
   height: 1vh;
 }
 
+/* "Best viewed on desktop" notice - only visible on small screens */
+.mobileNotice {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .mobileNotice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: fixed;
+    left: 8px;
+    right: 8px;
+    bottom: 48px;
+    z-index: 99999;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.82);
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.35;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .mobileNotice button {
+    flex: none;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+    padding: 0 2px;
+    cursor: pointer;
+  }
+}
+
 .description {
   display: inherit;
   justify-content: inherit;

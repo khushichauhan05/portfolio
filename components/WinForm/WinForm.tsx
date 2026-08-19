@@ -31,6 +31,18 @@ const WinForm = (props: {
   const [isMinimized, setMinimised] = useState(false);
   const [currX, setX] = useState(0);
   const [currY, setY] = useState(0);
+
+  // On phones the small floating windows are hard to use, so open real
+  // program windows (not prompt dialogs) maximised to fill the screen.
+  useEffect(() => {
+    if (
+      !props.prompt &&
+      typeof window !== "undefined" &&
+      window.innerWidth <= 700
+    ) {
+      setMaximised(true);
+    }
+  }, [props.prompt]);
   const currTabID = useSelector(
     (state: RootState) => state.tab.currentFocusedTab
   );
